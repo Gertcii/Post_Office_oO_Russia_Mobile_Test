@@ -14,7 +14,8 @@ public class RussianPostNativeTest extends BaseTest{
         getPageByName(MORE_PAGE).getElement("authorization").click();
         getPageByName(AUTHORIZATION).inputText("loginField", LOGIN);
         getPageByName(AUTHORIZATION).inputText("passwordField", PASSWORD);
-        getPageByName(AUTHORIZATION).getElements("enterButton").get(1).click();
+        getPageByName(AUTHORIZATION).getElement("signOnEnterButton").click();
+        //getPageByName(AUTHORIZATION).getElements("enterButton").get(3).click();
         //getPageByName(AUTHORIZATION).getWebElement("enterButton").click();
         getPageByName(AUTHORIZATION).getElement("moreAfterAuth").click();
         getPageByName(MORE_PAGE).getElement("authorization").click();

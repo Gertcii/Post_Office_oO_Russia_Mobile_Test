@@ -19,6 +19,9 @@ public class AuthorizationPage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@value='1']")
     public WebElement moreAfterAuth;
 
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[4]")
+    public WebElement signOnEnterButton;
+
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton")
     public List<WebElement> enterButton;
 
