@@ -22,12 +22,18 @@ public class BaseTest {
 
     public void setUpDriver(String platformName,
                             String udid,
-                            String bundleId) {
+                            String bundleId,
+                            String automationName,
+                            String locale,
+                            String language) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         capabilities.setCapability("platformName", platformName);
         capabilities.setCapability("udid", udid);
         capabilities.setCapability("bundleId", bundleId);
+        capabilities.setCapability("automationName", automationName);
+        capabilities.setCapability("locale", locale);
+        capabilities.setCapability("language", language);
         try {
             driver = new AppiumDriver(new URL(System.getProperty("ts.appium")), capabilities);
         } catch (MalformedURLException e) {
@@ -37,12 +43,15 @@ public class BaseTest {
 
     }
 
-    @Parameters({"platformName", "udid", "bundleId"})
+    @Parameters({"platformName", "udid", "bundleId", "automationName", "locale", "language"})
     @BeforeTest(alwaysRun = true)
     public void setUp(String platformName,
                       String udid,
-                      String bundleId) {
-        setUpDriver(platformName, udid, bundleId);
+                      String bundleId,
+                      String automationName,
+                      String locale,
+                      String language) {
+        setUpDriver(platformName, udid, bundleId, automationName, locale, language);
     }
 
     @AfterTest(alwaysRun = true)

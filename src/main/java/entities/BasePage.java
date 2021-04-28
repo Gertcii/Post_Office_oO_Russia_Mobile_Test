@@ -3,6 +3,7 @@ package entities;
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
 import java.lang.reflect.Field;
+import java.util.List;
 
 public class BasePage {
 
@@ -16,6 +17,9 @@ public class BasePage {
             case "more":
                 page = new MorePage(driver);
                 break;
+            case "authorization":
+                page = new AuthorizationPage(driver);
+                break;
             default: throw new Exception("page wasn't created " + pageName);
         }
     }
@@ -28,5 +32,10 @@ public class BasePage {
 
     public void inputText(String weName, String text) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         getWebElement(weName).sendKeys(text);
+    }
+    public List<WebElement> getWebElements(String weName) throws NoSuchFieldException, IllegalAccessException {
+        Field field = page.getClass().getDeclaredField(weName);
+        field.setAccessible(true);
+        return (List<WebElement>) field.get(page);
     }
 }
