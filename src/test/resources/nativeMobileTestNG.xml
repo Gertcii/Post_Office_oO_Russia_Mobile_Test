@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="iOS mobile tests for Post Office of Russia app">
+    <parameter name="platformName" value="iOS"></parameter>
+    <parameter name="udid" value="00008020-00094961369A002E"></parameter>
+    <parameter name="bundleId" value="ru.russianpost.Russian-Post"></parameter>
+    <test name="iOS Native tests">
+        <groups>
+            <run>
+                <include name="native"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="scenario"/>
+        </packages>
+    </test>
+</suite>
