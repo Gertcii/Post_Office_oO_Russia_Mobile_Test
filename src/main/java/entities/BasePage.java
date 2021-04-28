@@ -2,11 +2,9 @@ package entities;
 
 import io.appium.java_client.AppiumDriver;
 import org.openqa.selenium.WebElement;
-import setUp.IPageObject;
-
 import java.lang.reflect.Field;
 
-public class BasePage implements IPageObject {
+public class BasePage {
 
     Object page;
 
@@ -22,14 +20,12 @@ public class BasePage implements IPageObject {
         }
     }
 
-    @Override
     public WebElement getWebElement(String weName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         Field field = page.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (WebElement) field.get(page);
     }
 
-    @Override
     public void inputText(String weName, String text) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         getWebElement(weName).sendKeys(text);
     }
