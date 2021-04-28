@@ -24,16 +24,16 @@ public class BasePage {
         }
     }
 
-    public WebElement getWebElement(String weName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+    public WebElement getElement(String weName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
         Field field = page.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (WebElement) field.get(page);
     }
 
     public void inputText(String weName, String text) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        getWebElement(weName).sendKeys(text);
+        getElement(weName).sendKeys(text);
     }
-    public List<WebElement> getWebElements(String weName) throws NoSuchFieldException, IllegalAccessException {
+    public List<WebElement> getElements(String weName) throws NoSuchFieldException, IllegalAccessException {
         Field field = page.getClass().getDeclaredField(weName);
         field.setAccessible(true);
         return (List<WebElement>) field.get(page);
