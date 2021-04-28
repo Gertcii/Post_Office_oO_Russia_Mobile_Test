@@ -14,7 +14,7 @@ public class PostOfficePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeOther[@name='trackingItemList_searchBar']")
     public WebElement searchField;
 
-    public PostOfficePage(AppiumDriver driver){
+    public PostOfficePage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 }

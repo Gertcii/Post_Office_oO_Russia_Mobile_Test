@@ -13,8 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    private static AppiumDriver driver; // singleton
-    BasePage page;
+    private static AppiumDriver driver;
 
     public BasePage getPageByName(String pageName) throws Exception {
         return new BasePage(pageName, driver);
@@ -26,8 +25,8 @@ public class BaseTest {
                             String automationName,
                             String locale,
                             String language) {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
 
+        DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("platformName", platformName);
         capabilities.setCapability("udid", udid);
         capabilities.setCapability("bundleId", bundleId);
@@ -39,8 +38,7 @@ public class BaseTest {
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Parameters({"platformName", "udid", "bundleId", "automationName", "locale", "language"})
@@ -58,5 +56,4 @@ public class BaseTest {
     public void tearDown() {
         driver.closeApp();
     }
-
 }

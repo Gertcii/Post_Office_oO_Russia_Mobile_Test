@@ -11,7 +11,7 @@ public class MorePage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='moreStaticCell_authorization']")
     public WebElement authorization;
 
-    public MorePage(AppiumDriver driver){
+    public MorePage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 }
