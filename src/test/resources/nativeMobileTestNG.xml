@@ -3,6 +3,9 @@
     <parameter name="platformName" value="iOS"></parameter>
     <parameter name="udid" value="00008020-00094961369A002E"></parameter>
     <parameter name="bundleId" value="ru.russianpost.Russian-Post"></parameter>
+    <parameter name="automationName" value="XCUITest"></parameter>
+    <parameter name="locale" value="RU"></parameter>
+    <parameter name="language" value="ru"></parameter>
     <test name="iOS Native tests">
         <groups>
             <run>

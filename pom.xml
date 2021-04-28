@@ -11,6 +11,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <token>${env.EPAM_MOBILE_CLOUD_TOKEN}</token>
         <java-client.version>7.3.0</java-client.version>
         <testng.version>7.1.0</testng.version>
