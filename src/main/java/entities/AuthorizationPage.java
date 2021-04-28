@@ -16,19 +16,13 @@ public class AuthorizationPage {
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeSecureTextField")
     public WebElement passwordField;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@value='1']")
-    public WebElement moreAfterAuth;
-
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText[4]")
-    public WebElement signOnEnterButton;
-
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton")
-    public List<WebElement> enterButton;
-
     @iOSXCUITFindBy(xpath = "//XCUIElementTypeTextField")
     public List<WebElement> textFieldList;
 
-    public AuthorizationPage(AppiumDriver driver){
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeButton[@label= 'done']")
+    public WebElement doneButton;
+
+    public AuthorizationPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 }
