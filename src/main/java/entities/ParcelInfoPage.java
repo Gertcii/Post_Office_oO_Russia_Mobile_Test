@@ -6,12 +6,14 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class MorePage {
+import java.util.List;
 
-    @iOSXCUITFindBy(xpath = "//XCUIElementTypeCell[@name='moreStaticCell_authorization']")
-    public MobileElement authorization;
+public class ParcelInfoPage {
 
-    public MorePage(AppiumDriver driver) {
+    @iOSXCUITFindBy(xpath = "//XCUIElementTypeStaticText")
+    public List<MobileElement> infoTextList;
+
+    public ParcelInfoPage(AppiumDriver driver) {
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 }
