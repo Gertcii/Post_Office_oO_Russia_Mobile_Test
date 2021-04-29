@@ -1,7 +1,7 @@
 package entities;
 
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
+import io.appium.java_client.MobileElement;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -24,29 +24,30 @@ public class BasePage {
                 break;
             case "parcel info":
                 page = new ParcelInfoPage(driver);
+                break;
             default:
                 throw new Exception("page wasn't created " + pageName);
         }
     }
 
-    public WebElement getElement(String weName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        Field field = page.getClass().getDeclaredField(weName);
+    public MobileElement getElement(String elName) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+        Field field = page.getClass().getDeclaredField(elName);
         field.setAccessible(true);
-        return (WebElement) field.get(page);
+        return (MobileElement) field.get(page);
     }
 
-    public void inputText(String weName, String text) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
-        getElement(weName).sendKeys(text);
+    public void inputText(String elName, String text) throws NoSuchFieldException, IllegalAccessException, InstantiationException {
+        getElement(elName).sendKeys(text);
     }
 
-    public List<WebElement> getElements(String weName) throws NoSuchFieldException, IllegalAccessException {
-        Field field = page.getClass().getDeclaredField(weName);
+    public List<MobileElement> getElements(String elName) throws NoSuchFieldException, IllegalAccessException {
+        Field field = page.getClass().getDeclaredField(elName);
         field.setAccessible(true);
-        return (List<WebElement>) field.get(page);
+        return (List<MobileElement>) field.get(page);
     }
 
-    public Boolean isTextInElementsTextList(String weName, String expectedText) throws NoSuchFieldException, IllegalAccessException {
-        List<WebElement> elementList = getElements(weName);
+    public Boolean isTextInElementsTextList(String elName, String expectedText) throws NoSuchFieldException, IllegalAccessException {
+        List<MobileElement> elementList = getElements(elName);
         List<String> elementsTextList = new ArrayList<>();
         elementList.stream().forEach(x -> elementsTextList.add(x.getAttribute("value")));
         return elementsTextList.stream().anyMatch(x -> x.contains(expectedText));

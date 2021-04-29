@@ -24,8 +24,7 @@ public class RussianPostNativeTest extends BaseTest {
     @Test(groups = {"native"}, description = "search parcel by identifier code")
     public void searchParcelByParcelIdentifierCode() throws Exception {
         getPageByName(POST_OFFICE_PAGE).getElement("searchField").click();
-        Thread.sleep(3000);
-        getPageByName(POST_OFFICE_PAGE).inputText("searchField", PARCEL_IDENTIFIER_CODE);
+        driver.getKeyboard().sendKeys(PARCEL_IDENTIFIER_CODE);
         getPageByName(POST_OFFICE_PAGE).getElement("searchButton").click();
         assertTrue(getPageByName(PARCEL_INFO_PAGE).isTextInElementsTextList("infoTextList", PARCEL_IDENTIFIER_CODE));
     }
