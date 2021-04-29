@@ -2,7 +2,7 @@ package scenario;
 
 import org.testng.annotations.Test;
 
-import static TestData.DataForTest.*;
+import static testData.DataForTest.*;
 import static org.testng.Assert.assertTrue;
 import static setUp.PageNames.*;
 
