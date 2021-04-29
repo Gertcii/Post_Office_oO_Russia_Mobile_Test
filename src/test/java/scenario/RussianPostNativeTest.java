@@ -30,10 +30,18 @@ public class RussianPostNativeTest extends BaseTest {
     }
 
     @Test(groups = {"native"}, description = "search by EMC identifier code")
-    public void searchParcelByEMClIdentifierCode() throws Exception {
+    public void searchParcelByEMCIdentifierCode() throws Exception {
         getPageByName(POST_OFFICE_PAGE).getElement("searchField").click();
         driver.getKeyboard().sendKeys(EMC_IDENTIFIER_CODE);
         getPageByName(POST_OFFICE_PAGE).getElement("searchButton").click();
         assertTrue(getPageByName(PARCEL_INFO_PAGE).isTextInElementsTextList("infoTextList", EMC_IDENTIFIER_CODE));
+    }
+
+    @Test(groups = {"native"}, description = "search by multi-place parcel identifier code")
+    public void searchParcelByMultiPlaceParcelIdentifierCode() throws Exception {
+        getPageByName(POST_OFFICE_PAGE).getElement("searchField").click();
+        driver.getKeyboard().sendKeys(MULTI_PLACE_IDENTIFIER_CODE);
+        getPageByName(POST_OFFICE_PAGE).getElement("searchButton").click();
+        assertTrue(getPageByName(PARCEL_INFO_PAGE).isTextInElementsTextList("infoTextList", MULTI_PLACE_IDENTIFIER_CODE));
     }
 }
