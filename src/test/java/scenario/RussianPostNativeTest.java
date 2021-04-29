@@ -28,4 +28,12 @@ public class RussianPostNativeTest extends BaseTest {
         getPageByName(POST_OFFICE_PAGE).getElement("searchButton").click();
         assertTrue(getPageByName(PARCEL_INFO_PAGE).isTextInElementsTextList("infoTextList", PARCEL_IDENTIFIER_CODE));
     }
+
+    @Test(groups = {"native"}, description = "search by EMC identifier code")
+    public void searchParcelByEMClIdentifierCode() throws Exception {
+        getPageByName(POST_OFFICE_PAGE).getElement("searchField").click();
+        driver.getKeyboard().sendKeys(EMC_IDENTIFIER_CODE);
+        getPageByName(POST_OFFICE_PAGE).getElement("searchButton").click();
+        assertTrue(getPageByName(PARCEL_INFO_PAGE).isTextInElementsTextList("infoTextList", EMC_IDENTIFIER_CODE));
+    }
 }
