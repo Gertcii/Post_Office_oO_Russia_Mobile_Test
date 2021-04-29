@@ -22,6 +22,8 @@ public class BasePage {
             case "authorization":
                 page = new AuthorizationPage(driver);
                 break;
+            case "parcel info":
+                page = new ParcelInfoPage(driver);
             default:
                 throw new Exception("page wasn't created " + pageName);
         }
